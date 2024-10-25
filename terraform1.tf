@@ -26,3 +26,27 @@ provider "aws" {
   access_key = var.TF_ACCESS_KEY
   secret_key = var.TF_SECRET_KEY
 }
+
+// Create aws ec2
+
+resource "aws_instance" "terraform_instance2" {
+  ami           = "ami-04a37924ffe27da53"
+  instance_type = "t2.micro"
+  private_ip = "172.31.8.30"
+  subnet_id = "subnet-079dcfda3ed887573"
+
+  tags = {
+    Name = "Server2"
+  }
+}
+
+resource "aws_instance" "terraform_instance1" {
+ ami           = "ami-04a37924ffe27da53"
+ instance_type = "t2.micro"
+ private_ip = "172.31.8.31"
+ subnet_id = "subnet-079dcfda3ed887573"
+ tags = {
+   Name = "Server1"
+    }
+ }
+
